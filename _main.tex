@@ -1,0 +1,442 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={CORE 103: Quantitative Reasoning for a Digital Age},
+  pdfauthor={Phan Tuan Ngoc and Van Phung Truong Son},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{CORE 103: Quantitative Reasoning for a Digital Age}
+\author{Phan Tuan Ngoc and Van Phung Truong Son}
+\date{Spring 2023}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{syllabus}{%
+\section*{Syllabus}\label{syllabus}}
+\addcontentsline{toc}{section}{Syllabus}
+
+\hypertarget{key-information}{%
+\subsection*{Key information}\label{key-information}}
+\addcontentsline{toc}{subsection}{Key information}
+
+\begin{itemize}
+\tightlist
+\item
+  Instructors: Phan Tuan Ngoc and Van Phung Truong Son
+\item
+  Emails:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Phan: \href{mailto:ngoc.phan@fulbright.edu.vn}{\nolinkurl{ngoc.phan@fulbright.edu.vn}}
+  \item
+    Van: \href{mailto:son.van+104@fulbright.edu.vn}{\nolinkurl{son.van+104@fulbright.edu.vn}}
+  \end{itemize}
+\item
+  Class time:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Section 6: M \& W: 8:00a - 9:30a
+  \item
+    Section 8: T \& Th: 1:15p - 2:45p
+  \end{itemize}
+\item
+  Class Location: Classroom 1
+\item
+  Office hours: TBD
+\end{itemize}
+
+\hypertarget{course-description}{%
+\subsection*{Course description}\label{course-description}}
+\addcontentsline{toc}{subsection}{Course description}
+
+Digital technology transforms the way we live: from how we travel, to what we use for money, to how we swipe to find love.
+At the heart of these social, cultural, and economic changes lie mathematics and computer science. But how do we gather the information, interpret the data, and construct the algorithms that drive these advances and affect our lives? Quantitative Reasoning for a Digital Age not only develops foundational skills in mathematics and computer science, but demonstrates how computer programming and algorithmic thinking inform issues in fields as diverse as economics, psychology, history, and philosophy. Structured around project-based teamwork, students will examine how the toolkit of computational thinking can model human behavior and address real-world problems in business, education, public health, government, and other sectors. By understanding how quantitative reasoning affects modern society and modern society often affects our quantitative reasoning, students will learn to question their own assumptions about data big and small and think critically about the abundance of quantitative information that defines the decisions we make.
+
+\hypertarget{projects}{%
+\subsection*{Projects}\label{projects}}
+\addcontentsline{toc}{subsection}{Projects}
+
+This is a project-based course. Project-based courses allow students to learn new concepts, perspectives, and tools through activities embedded in a project. The projects we have developed are intended to allow you to pick up basic skills in statistics and programming while learning about issues such as climate change and inequality.
+You will work on these projects in teams of 3-4. Each project will come with documentation that provides an overview of the questions you will investigate as well as details on deliverables. Each project will be supported by worksheets in class and homework out of class. Each project will have a different ``main'' deliverable that your team will create which is due at the end of the project. Finally, after each project, you will complete a written assessment that will allow you to illustrate what you have learned from the project.
+
+\hypertarget{readings}{%
+\subsection*{Readings}\label{readings}}
+\addcontentsline{toc}{subsection}{Readings}
+
+In this course, we will not follow a single textbook, but rather draw upon a variety of readings from books, newspaper articles, and academic articles. All readings will be published in your homework documents.
+
+\hypertarget{learning-objectives}{%
+\subsection*{Learning objectives}\label{learning-objectives}}
+\addcontentsline{toc}{subsection}{Learning objectives}
+
+After the course, students are expected to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Formulate research questions and collect appropriate data to address these questions
+\item
+  Critically examine and identify patterns in quantitative data
+\item
+  Effectively work in teams
+\item
+  Clearly communicate quantitative information
+\end{enumerate}
+
+\hypertarget{assessment}{%
+\subsection*{Assessment}\label{assessment}}
+\addcontentsline{toc}{subsection}{Assessment}
+
+During the course, students are expected to compute their own percentage
+points based on the following scheme.
+The instructor is not responsible for providing the running percentage.
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule
+\textbf{Project 1} & \textbf{Weight} & \textbf{Project 2} & \textbf{Weight}\tabularnewline
+\midrule
+\endhead
+Weekly homework & 10\% & Weekly homeworks & 10\%\tabularnewline
+Video & 15\% & Poster & 15\%\tabularnewline
+Driving test & 20\% & Final Synthesis & 20\%\tabularnewline
+Worksheets & 5\% & Worksheets & 5\%\tabularnewline
+Total & 50\% & Total & 50\%\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Homework (20\%)}
+
+You will be assigned homework after most classes. Homework is due before the next class. You will be graded on your effort and engagement with the homework questions, not necessarily whether your answer is correct or not. The day homework is due, we will spend time at the beginning of class going over our solutions with you.
+
+\textbf{Project Deliverables (15\%+ 20\%=35\%)}
+
+Each project has a different ``main'' deliverable. In the first project, your team will create a video. In the second project, your team will create a poster. In the third project, your team will create an infographic. You will find details on each of the deliverables in the project documentation posted on Canvas.
+
+\textbf{Driving Test (20\%)}
+
+At the end of your first project, there will be an in-class test. This test is meant to check whether you have been keeping up with the homework. There will be an emphasis on the basics of programming and descriptive statistics.
+
+\textbf{Final Synthesis (15\%)}
+
+At the end of the semester, you complete a written assessment that aims to bring together all aspects from the course to leave both you and us with some closure on your learning. Your Final Synthesis may consist of a wide range of short-essay questions. The goal is to allow you to explore your course experience by illustrating and articulating your learning in a meaningful manner.
+
+\textbf{Worksheets (10\%)}
+
+Most classes will have a worksheet. You will be graded on your effort and engagement with the worksheet in the class.
+
+The following is the non-negotiable letter grade breakdown. It is based on
+common practice in the United States for standard courses such as Calculus.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+\textbf{Letter Grade} & \textbf{Percentage}\tabularnewline
+\midrule
+\endhead
+A & {[}93,100{]}\tabularnewline
+A- & {[}90,93)\tabularnewline
+B+ & {[}87,90)\tabularnewline
+B & {[}83,87)\tabularnewline
+B- & {[}80, 83)\tabularnewline
+C+ & {[}77,80)\tabularnewline
+C & {[}73,77)\tabularnewline
+C- & {[}70,73)\tabularnewline
+D+ & {[}67,70)\tabularnewline
+D & {[}60, 66)\tabularnewline
+F & {[}0,60)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{late-assignments}{%
+\subsection*{Late assignments}\label{late-assignments}}
+\addcontentsline{toc}{subsection}{Late assignments}
+
+We do not accept late assignments.
+
+\hypertarget{class-attendance-and-participation}{%
+\subsection*{Class Attendance and Participation}\label{class-attendance-and-participation}}
+\addcontentsline{toc}{subsection}{Class Attendance and Participation}
+
+Attendance and active participation is expected for this course. If you must be away from class, email us at the earliest time possible, arrange for a classmate to fill you in on what you missed, and make up any missing work in a timely fashion. If you are too sick to come to class, you should focus on getting healthy and notify us as early as possible.
+
+\hypertarget{time-expectations}{%
+\subsection*{Time Expectations}\label{time-expectations}}
+\addcontentsline{toc}{subsection}{Time Expectations}
+
+On average, you should expect to be roughly 3 hours in class per week, which are included in a total of 10 working hours per course per week. If you are finding it difficult to complete your work in time, please come talk to one of us ASAP so that we can diagnose the issue and adjust accordingly. If something is not working for you, please do not hesitate to raise it in one of the feedback sessions or come see one of us outside of class.
+
+\hypertarget{collaboration-plagiarism}{%
+\subsection*{Collaboration \& Plagiarism}\label{collaboration-plagiarism}}
+\addcontentsline{toc}{subsection}{Collaboration \& Plagiarism}
+
+Plagiarism is the act of submitting the intellectual property of another person as your own. It is one of the most serious of academic offenses. Acts of plagiarism include, but are not limited to:
+
+\begin{itemize}
+\item
+  Copying, or allowing someone to copy, all or a part of another person's work and presenting it as your own, or not giving proper credit.
+\item
+  Purchasing a paper from someone (or a website) and presenting it as your own work.
+\item
+  Re-submitting your work from another course to fulfill a requirement in another course.
+\end{itemize}
+
+Further details can be found in the Code of Academic Integrity {[}\href{https://fulbright.edu.vn/articles/Code\%20of\%20Academic\%20Integrity/Code\%20of\%20Academic\%20Integrity_\%20Excom\%20Endorsed.pdf}{link}{]}.
+
+\hypertarget{learning-support}{%
+\subsection*{Learning Support}\label{learning-support}}
+\addcontentsline{toc}{subsection}{Learning Support}
+
+In addition to your course teachers, there are other resources available to support your academic work at Fulbright. The Fulbright Learning Support team can help you with course content, academic skills, avoiding plagiarism, English language development, and other learning resources.
+If you would like to receive learning support, book an appointment directly with a peer mentor or a learning support staff member.
+
+If you have questions about peer mentoring, contact Patrick at \href{mailto:patrick.thoendel@fulbright.edu.vn}{\nolinkurl{patrick.thoendel@fulbright.edu.vn}}.
+
+For questions about individual learning plans, contact Miss Tam at \href{mailto:nhattam.hoang@fulbright.edu.vn}{\nolinkurl{nhattam.hoang@fulbright.edu.vn}}.
+
+\hypertarget{wellbeing}{%
+\subsection*{Wellbeing}\label{wellbeing}}
+\addcontentsline{toc}{subsection}{Wellbeing}
+
+Mental health and wellbeing are essential for the success of your academic journey. The
+Fulbright Wellness Center provides various services including counseling, safer community,
+and accessibility services. If you are experiencing undue personal or academic stress, are
+feeling unsafe, or would like to know more about issues related to wellbeing, please contact
+the Wellness Center via \href{mailto:wellness@fulbright.edu.vn}{\nolinkurl{wellness@fulbright.edu.vn}} or visit the Wellness Center office on
+Level 5 of the Crescent campus.
+
+\newpage
+
+\hypertarget{tentative-course-schedule}{%
+\subsection*{Tentative Course Schedule}\label{tentative-course-schedule}}
+\addcontentsline{toc}{subsection}{Tentative Course Schedule}
+
+The following schedule will be updated as we go so that students will know what to read
+before/after class.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.18\columnwidth}\raggedright
+\textbf{Week}\strut
+\end{minipage} & \begin{minipage}[b]{0.38\columnwidth}\raggedright
+\textbf{Content}\strut
+\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+\textbf{Monday, Tuesday}\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+\textbf{Wednesday, Thursday}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\textbf{Project 1: Climate change}\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Course/project introduction (Feb 06)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 1.1: Colab introduction (Feb 08)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 1.2: Line chart (Feb 13)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 1.3: Histogram (Feb 15)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 1.4: Quantile, mean, and variance (Feb 20)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Review (Feb 22)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 1.5: Scatter plot and correlation (Feb 27)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 1.6: Descriptive statistics (March 01)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 1.7: Curve fitting (March 06)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Review (March 08)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Q\&A (March 13)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Q\&A (March 15)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+7\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Driving test (March 20)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Final discussion (March 22)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\textbf{Project 2: Inequality}\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Project introduction (March 27)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Intro to surveys, conducting surveys (No class: reading at home)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 2.1: Lorenz curve and Gini (April 03)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 2.2: for-loop (April 05)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+10\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 2.3: 3D plotting (April 10)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 2.3: 3D plotting (contd) (April 12)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+11\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 2.4: Linear regression (April 17)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 2.4: Linear regression (contd) + Review (April 19)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+12\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+WS 2.5: Normal distribution and Central limit theorem (April 24)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 2.6: Confidence intervals (April 26)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+13\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+No class (Holidays)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+WS 2.7: Two variable comparison (May 03)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+14\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Review (May 08)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Review (May 10)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+15\strut
+\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
+Q\&A (May 15)\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
+Final synthesis/Reflection (May 17)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}
