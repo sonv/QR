@@ -4,17 +4,20 @@
 %
 \documentclass[
 ]{article}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -33,16 +36,9 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={CORE 103: Quantitative Reasoning for a Digital Age},
-  pdfauthor={Phan Tuan Ngoc and Van Phung Truong Son},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -68,6 +64,17 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CORE 103: Quantitative Reasoning for a Digital Age},
+  pdfauthor={Phan Tuan Ngoc and Van Phung Truong Son},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{CORE 103: Quantitative Reasoning for a Digital Age}
 \author{Phan Tuan Ngoc and Van Phung Truong Son}
@@ -164,17 +171,30 @@ During the course, students are expected to compute their own percentage
 points based on the following scheme.
 The instructor is not responsible for providing the running percentage.
 
-\begin{longtable}[]{@{}cccc@{}}
-\toprule
-\textbf{Project 1} & \textbf{Weight} & \textbf{Project 2} & \textbf{Weight}\tabularnewline
-\midrule
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3973}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1781}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2466}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1781}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{Project 1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Weight}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Project 2}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Weight}
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
-Weekly homework & 10\% & Weekly homeworks & 10\%\tabularnewline
-Video & 15\% & Poster & 15\%\tabularnewline
-Driving test & 20\% & Final Synthesis & 20\%\tabularnewline
-Worksheets & 5\% & Worksheets & 5\%\tabularnewline
-Total & 50\% & Total & 50\%\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+Weekly homework & 10\% & Weekly homework & 10\% \\
+Video & 15\% & Poster & 15\% \\
+Driving test & 20\% & Final Synthesis & 20\% \\
+Worksheets & 5\% & Worksheets & 5\% \\
+Total & 50\% & Total & 50\% \\
 \end{longtable}
 
 \textbf{Homework (20\%)}
@@ -201,22 +221,23 @@ The following is the non-negotiable letter grade breakdown. It is based on
 common practice in the United States for standard courses such as Calculus.
 
 \begin{longtable}[]{@{}cc@{}}
-\toprule
-\textbf{Letter Grade} & \textbf{Percentage}\tabularnewline
-\midrule
+\toprule\noalign{}
+\textbf{Letter Grade} & \textbf{Percentage} \\
+\midrule\noalign{}
 \endhead
-A & {[}93,100{]}\tabularnewline
-A- & {[}90,93)\tabularnewline
-B+ & {[}87,90)\tabularnewline
-B & {[}83,87)\tabularnewline
-B- & {[}80, 83)\tabularnewline
-C+ & {[}77,80)\tabularnewline
-C & {[}73,77)\tabularnewline
-C- & {[}70,73)\tabularnewline
-D+ & {[}67,70)\tabularnewline
-D & {[}60, 66)\tabularnewline
-F & {[}0,60)\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+A & {[}93,100{]} \\
+A- & {[}90,93) \\
+B+ & {[}87,90) \\
+B & {[}83,87) \\
+B- & {[}80, 83) \\
+C+ & {[}77,80) \\
+C & {[}73,77) \\
+C- & {[}70,73) \\
+D+ & {[}67,70) \\
+D & {[}60, 66) \\
+F & {[}0,60) \\
 \end{longtable}
 
 \hypertarget{late-assignments}{%
@@ -285,158 +306,41 @@ Level 5 of the Crescent campus.
 The following schedule will be updated as we go so that students will know what to read
 before/after class.
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.18\columnwidth}\raggedright
-\textbf{Week}\strut
-\end{minipage} & \begin{minipage}[b]{0.38\columnwidth}\raggedright
-\textbf{Content}\strut
-\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright
-\strut
-\end{minipage}\tabularnewline
-\midrule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1935}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4129}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3935}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Week}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Content}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-\textbf{Monday, Tuesday}\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-\textbf{Wednesday, Thursday}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-\textbf{Project 1: Climate change}\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-1\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Course/project introduction (Feb 06)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 1.1: Colab introduction (Feb 08)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-2\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 1.2: Line chart (Feb 13)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 1.3: Histogram (Feb 15)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-3\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 1.4: Quantile, mean, and variance (Feb 20)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Review (Feb 22)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-4\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 1.5: Scatter plot and correlation (Feb 27)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 1.6: Descriptive statistics (March 01)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-5\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 1.7: Curve fitting (March 06)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Review (March 08)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-6\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Q\&A (March 13)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Q\&A (March 15)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-7\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Driving test (March 20)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Final discussion (March 22)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-\textbf{Project 2: Inequality}\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-8\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Project introduction (March 27)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Intro to surveys, conducting surveys (No class: reading at home)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-9\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 2.1: Lorenz curve and Gini (April 03)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 2.2: for-loop (April 05)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-10\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 2.3: 3D plotting (April 10)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 2.3: 3D plotting (contd) (April 12)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-11\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 2.4: Linear regression (April 17)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 2.4: Linear regression (contd) + Review (April 19)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-12\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-WS 2.5: Normal distribution and Central limit theorem (April 24)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 2.6: Confidence intervals (April 26)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-13\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-No class (Holidays)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-WS 2.7: Two variable comparison (May 03)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-14\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Review (May 08)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Review (May 10)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.18\columnwidth}\raggedright
-15\strut
-\end{minipage} & \begin{minipage}[t]{0.38\columnwidth}\raggedright
-Q\&A (May 15)\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright
-Final synthesis/Reflection (May 17)\strut
-\end{minipage}\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+& \textbf{Monday, Tuesday} & \textbf{Wednesday, Thursday} \\
+\textbf{Project 1: Climate change} & & \\
+1 & Course/project introduction (Feb 06) & WS 1.1: Colab introduction (Feb 08) \\
+2 & WS 1.2: Line chart (Feb 13) & WS 1.3: Histogram (Feb 15) \\
+3 & WS 1.4: Quantile, mean, and variance (Feb 20) & Review (Feb 22) \\
+4 & WS 1.5: Scatter plot and correlation (Feb 27) & WS 1.6: Descriptive statistics (March 01) \\
+5 & WS 1.7: Curve fitting (March 06) & Review (March 08) \\
+6 & Q\&A (March 13) & Q\&A (March 15) \\
+7 & Driving test (March 20) & Final discussion (March 22) \\
+& & \\
+\textbf{Project 2: Inequality} & & \\
+& & \\
+8 & Project introduction (March 27) & Intro to surveys, conducting surveys (No class: reading at home) \\
+9 & WS 2.1: Lorenz curve and Gini (April 03) & WS 2.2: for-loop (April 05) \\
+10 & WS 2.3: 3D plotting (April 10) & WS 2.3: 3D plotting (contd) (April 12) \\
+11 & WS 2.4: Linear regression (April 17) & WS 2.4: Linear regression (contd) + Review (April 19) \\
+12 & WS 2.5: Normal distribution and Central limit theorem (April 24) & WS 2.6: Confidence intervals (April 26) \\
+13 & No class (Holidays) & WS 2.7: Two variable comparison (May 03) \\
+14 & Review (May 08) & Review (May 10) \\
+15 & Q\&A (May 15) & Final synthesis/Reflection (May 17) \\
 \end{longtable}
 
 \end{document}
